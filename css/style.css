@@ -1,0 +1,138 @@
+@import'./reset.css';
+@import'./dictionary-tools.css';
+@import'./dictionary-word.css';
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-main: #fff;
+  --color-secondary: #7e7e7e;
+  --color-accent: #36f989;
+  --color-border: #3c9e65;
+  --color-bg-hover: #164428;
+  --color-grey: #7e7e7e2c;
+  --color-border-word: #4444447c;
+  /* --color-accent-02: #fe7155; */
+  --color-accent-02: #36f989;
+  --font-family: 'fira code';
+  --radius: 4px;
+}
+html,body {
+  height: 100%;
+}
+body {
+  background-color: #141414;
+  color: var(--color-main);
+  padding: 30px 0px;
+  font-family: var(--font-family);
+  /* overflow: hidden; */
+
+}
+
+
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+.dictionary {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.dictionary__modal-color {
+  position: absolute;
+  padding: 10px;
+  top: 45px;
+  left: 165px;
+  width: 200px;
+  height: auto;
+  background: #222222;
+  border-radius: 4px;
+  border: 1px solid #3d3d3d7c;
+  display: none;
+}
+.dictionary__wrapper-modal-color {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.dictionary__modal-background {
+  position: absolute;
+  padding: 10px;
+  top: 45px;
+  left: 200px;
+  width: 200px;
+  height: auto;
+  background: #222222;
+  border-radius: 4px;
+  border: 1px solid #3d3d3d7c;
+  display: none;
+}
+.dictionary__wrapper-modal-background {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.dictionart__modal-warning {
+  position: absolute;
+  background: #222222;
+  display: none;
+  
+}
+
+.dictionary__span-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal-color-active {
+  display: block;
+}
+.modal-background-active {
+  display: block;
+}
+
+.simplebar-content {
+  z-index: -20;
+}
+
+.simplebar-scrollbar {
+  background: linear-gradient(
+    250deg,
+    rgb(255, 255, 255, 0) 0%,
+    var(--color-accent-02) 51.56%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  width: 3px;
+}
+.simplebar-track.simplebar-vertical {
+  width: 3px;
+}
+
+.active-line {
+  border: 1px solid var(--color-border);
+}
+
+.active-border{
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.style-bolt {
+  font-weight: bold;
+}
+.style-italic {
+  font-style: italic;
+}

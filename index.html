@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link
+  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Dictionary</title>
+</head>
+<body>
+  <div class="container">
+    <div class="dictionary">
+      <div class="dictionary__tools-wrapper">
+        <div class="dictionary__categories">
+          <button class="dictionary__categories-btn "></button>
+          <div class="dictionary__categories-item-wrapper">
+            <div class="dictionary__categories-item">
+              All words
+            </div>
+          </div>
+        </div>
+        <div class="dictionary__tools-bar">
+          <div class="dictionary__tools-bar-btn-wrapper">
+            <button class="tools-bar-btn color">         
+              <i class="fa-solid fa-a position color-icon"></i>
+            </button>
+            <div class="dictionary__color-info"></div>
+          </div>
+          <div class="dictionary__tools-bar-btn-wrapper">
+            <button class="tools-bar-btn background">
+              <i class="fa-solid fa-paint-roller position"></i>
+            </button>
+            <div class="dictionary__color-info"></div>
+          </div>
+          <div class="dictionary__tools-bar-btn-wrapper">
+            <button class="tools-bar-btn combine centr">
+              <i class=" fa-brands fa-y-combinator"></i>
+            </button>
+          </div>
+          <div class="dictionary__tools-bar-btn-wrapper">
+            <button class="tools-bar-btn bolt centr">
+              <i class="fa-solid fa-b"></i>
+            </button>
+          </div>
+          <div class="dictionary__tools-bar-btn-wrapper">
+            <button class="tools-bar-btn italic centr">
+              <i class="fa-solid fa-italic"></i>
+            </button>
+          </div>
+        </div>
+        <div class="dictionary__size-wrapper">
+          <button class="dictionary__size-minus">-</button>
+          <div class="dictionary__size-count">14</div>
+          <button class="dictionary__size-plus">+</button>
+        </div>
+      </div>
+      <div class="dictionary__wrapper">
+        <div class="dictionary__column-wrapper">
+          <button class="dictionary__add-btn"></button>
+          <div class="dictionary__column-item-wrapper">
+            <div class="dictionary__column-item fixed">
+              <div class="dictionary__column-item-title">
+                Word
+              </div>
+            </div>
+            <div class="dictionary__column-item fixed">
+              <div class="dictionary__column-item-title">
+                Transcription
+              </div>
+              <div class="dictionary__column-item-content"></div>
+            </div>
+            <div class="dictionary__column-item fixed">
+              <div class="dictionary__column-item-title">
+                Translation
+              </div>
+              <div class="dictionary__column-item-content"></div>
+            </div>
+            <div class="dictionary__column-item flexible">
+              <div class="dictionary__column-item-title">
+                Examples
+              </div>
+              <div class="dictionary__column-item-content"></div>
+            </div>
+          </div>
+        </div>
+        <div class="dictionary__border">
+          <div class="dictionary__word-wrapper" id="scroll-container" data-simplebar>
+            <div class="dictionary__word-inner">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dictionary__modal-color">
+        <div class="dictionary__wrapper-modal-color"></div>
+      </div>
+      <div class="dictionary__modal-background">
+        <div class="dictionary__wrapper-modal-background"></div>
+      </div>
+      <div class="dictionart__modal-warning">
+        <button class="btn-modal-warning"></button>
+        <h4 class="modal-warning-title">Внимание!</h4>
+        <p class="modal-warning-text">При объединении сохранятся только данные первой ячейки . Продолжить?</p>
+        <button class="btn-agree">Да хорошо</button>
+        <button class="btn-not-agree">Нет</button>
+      </div>
+    </div> 
+  </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
