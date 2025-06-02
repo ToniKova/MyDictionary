@@ -1,9 +1,11 @@
 const btnColor = document.querySelector('.color')
 const modalWindowColor = document.querySelector('.dictionary__modal-color')
-const wrapperModalcolor = document.querySelector('.dictionary__wrapper-modal-color')
-const iconCentr = document.querySelector('.fa-y-combinator')
+const wrapperModalColor = document.querySelector('.dictionary__wrapper-modal-color')
 
-// const addBtn = document.querySelector('.dictionary__add-btn')
+const btnBackground = document.querySelector('.background')
+const wrapperModalBackground = document.querySelector('.dictionary__wrapper-modal-background')
+const modalWindowBackground = document.querySelector('.dictionary__modal-background')
+
 
 export let arrayColors = [
   "#141414",
@@ -21,42 +23,70 @@ window.addEventListener('click', (e)=> {
   if (e.target.classList.contains('color')) {
     const allColor = document.querySelectorAll('.dictionary__span-color')
     if (allColor.length > 0) {
-      deleteSpanColor()
+      deleteSpanColor(wrapperModalColor)
     }
     modalWindowColor.classList.toggle('modal-color-active')
     btnColor.classList.toggle('active-shadow')
-    createSpanColor()
-    showActiveColor()
+    createSpanColor(wrapperModalColor)
+    showActiveColor('color')
+    // showActiveColor()
 
   } else {
     modalWindowColor.classList.remove('modal-color-active')
     btnColor.classList.remove('active-shadow')
-    deleteSpanColor()
+    // deleteSpanColor()
   }
+
+
   if (e.target.classList.contains('dictionary__add-btn')) {
     cheackLineWord()
   }
+
+
+  if (e.target.classList.contains('background')) {
+    const allColors = document.querySelectorAll('.dictionary__span-color')
+    if (allColors.length > 0) {
+      deleteSpanColor(wrapperModalBackground)
+    }
+    modalWindowBackground.classList.toggle('modal-background-active')
+    btnBackground.classList.toggle('active-shadow')
+    createSpanColor(wrapperModalBackground)
+    showActiveColor('background')
+
+  } else {
+    modalWindowBackground.classList.remove('modal-background-active')
+    btnBackground.classList.remove('active-shadow')
+  }
 })
-function createSpanColor () {
-  // Создание каждлго цвета при открытии модалки
+
+
+// =====================================================
+
+function createSpanColor (wrapperModal) {
+  // Создание каждого цвета при открытии модалки
   for (let i = 0; i < arrayColors.length; i++) {
     const spanColor = document.createElement('span')
     spanColor.classList.add('dictionary__span-color')
     spanColor.style.background = arrayColors[i]
-    wrapperModalcolor.appendChild(spanColor)
+    wrapperModal.appendChild(spanColor)
+    
   }
 }
-export function deleteSpanColor () { 
-  // Удление каждого цвета при закрытии модалки
-  while (wrapperModalcolor.firstChild) {
-    wrapperModalcolor.removeChild(wrapperModalcolor.firstChild)
-  }
+
+
+// ==================================================
+
+export function deleteSpanColor (modalWindow) { 
+  // Очистка модалки при закрытии
+  modalWindow.innerHTML = ''
 }
+
+
+// =======================================================
 
 function cheackLineWord () { 
   // Функция для проверки если ли класс активности у ячейки на которую кликнули
   const lineWordAll = document.querySelectorAll('.dictionary__line-word')
-  // console.log(lineWordAll)
   lineWordAll.forEach(item => {
     item.addEventListener('click', () => {
       fontSizeLine(item)
@@ -71,36 +101,39 @@ function cheackLineWord () {
 }
 
 
+// =======================================================
 
+function showActiveColor (property) {
+  //функция для настройки нужного цвета текста в ячейке
+  const AllColors = document.querySelectorAll('.dictionary__span-color')
+  const lineWord = document.querySelectorAll('.dictionary__line-word')
+  AllColors.forEach(item => {
+    item.addEventListener('click', () => {
+      const itemPropertyStyle = item.style.background
+      console.log(itemPropertyStyle)
+      lineWord.forEach(item => {
+        if (item.classList.contains('active-line')) {
+          item.style[property] = itemPropertyStyle
+          
+        }
+      })
+    })
+  })
+}
+
+
+// =====================================================
 
 function fontSizeLine (item) {
   if (item.textContent.trim().length > 0) {
     const countSize = document.querySelector('.dictionary__size-count')
     let currentSize = parseInt(window.getComputedStyle(item).fontSize, 10);
-    // console.log(currentSize)
     if (!item.style.fontSize) {
       item.style.fontSize = currentSize;
     } 
-    // updateFontSizeDisplay(item)
     countSize.textContent = currentSize;
   } 
 
-}
-
-
-
-function updateFontSizeDisplay(item) {
-  const countSize = document.querySelector('.dictionary__size-count');
-  const currentSize = parseInt(item.style.fontSize, 10);
-  countSize.textContent = currentSize + 'px';
-}
-function increaseFontSize(item) {
-  let currentSize = parseInt(item.style.fontSize, 10);
-  currentSize += 1; // Увеличиваем размер на 1px
-  item.style.fontSize = currentSize + 'px';
-
-  // Обновляем отображаемый размер шрифта
-  updateFontSizeDisplay(item);
 }
 
 
@@ -134,21 +167,25 @@ function increaseFontSize(item) {
 //   })
 // }
 
-function showActiveColor () {
-  //функция для настройки нужного цвета в ячейке из палитры цветов
-  const AllColors = document.querySelectorAll('.dictionary__span-color')
-  const lineWord = document.querySelectorAll('.dictionary__line-word')
-  AllColors.forEach(item => {
-    item.addEventListener('click', () => {
-      const itemBackground = item.style.background
-      lineWord.forEach(item => {
-        if (item.classList.contains('active-line')) {
-          item.style.color = itemBackground
-        }
-      })
-    })
-  })
-}
+
+
+
+// =------------------------------------------------------=
+
+
+
+// function updateFontSizeDisplay(item) {
+//   const countSize = document.querySelector('.dictionary__size-count');
+//   const currentSize = parseInt(item.style.fontSize, 10);
+//   countSize.textContent = currentSize + 'px';
+// }
+// function increaseFontSize(item) {
+//   let currentSize = parseInt(item.style.fontSize, 10);
+//   currentSize += 1; // Увеличиваем размер на 1px
+//   item.style.fontSize = currentSize + 'px';
+
+//   updateFontSizeDisplay(item);
+// }
 
 
 

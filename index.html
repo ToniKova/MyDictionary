@@ -17,9 +17,9 @@
         <div class="dictionary__categories">
           <button class="dictionary__categories-btn "></button>
           <div class="dictionary__categories-item-wrapper">
-            <div class="dictionary__categories-item">
+            <button class="dictionary__categories-item">
               All words
-            </div>
+            </button>
           </div>
         </div>
         <div class="dictionary__tools-bar">
@@ -100,12 +100,16 @@
       <div class="dictionary__modal-background">
         <div class="dictionary__wrapper-modal-background"></div>
       </div>
+      <div class="dictionary__overlay"></div>
       <div class="dictionart__modal-warning">
-        <button class="btn-modal-warning"></button>
-        <h4 class="modal-warning-title">Внимание!</h4>
-        <p class="modal-warning-text">При объединении сохранятся только данные первой ячейки . Продолжить?</p>
-        <button class="btn-agree">Да хорошо</button>
-        <button class="btn-not-agree">Нет</button>
+        <div class="dictionary__modal-warning-wrapper">
+          <h4 class="modal-warning-title">Внимание!</h4>
+          <p class="modal-warning-text">При объединении всех ячеек, данные сохранятся только c первой ячейки. Продолжить?</p>
+          <div class="modal-wrapper-btn">
+            <button class="modal-warning-btn accept">Ок</button>
+            <button class="modal-warning-btn refuse">Отмена</button>
+          </div>
+        </div>
       </div>
     </div> 
   </div>

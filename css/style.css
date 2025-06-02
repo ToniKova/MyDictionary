@@ -9,6 +9,7 @@
   box-sizing: border-box;
 }
 :root {
+  --color-bacground: #111111;
   --color-main: #fff;
   --color-secondary: #7e7e7e;
   --color-accent: #36f989;
@@ -19,13 +20,14 @@
   /* --color-accent-02: #fe7155; */
   --color-accent-02: #36f989;
   --font-family: 'fira code';
+  /* --font-family: 'Arial'; */
   --radius: 4px;
 }
 html,body {
   height: 100%;
 }
 body {
-  background-color: #141414;
+  background-color: var(--color-bacground);
   color: var(--color-main);
   padding: 30px 0px;
   font-family: var(--font-family);
@@ -66,6 +68,9 @@ body {
   flex-wrap: wrap;
   gap: 3px;
 }
+
+/* ----------------------------------modal-background */
+ 
 .dictionary__modal-background {
   position: absolute;
   padding: 10px;
@@ -84,11 +89,65 @@ body {
   gap: 3px;
 }
 
+/* ------------------------------modal-warning */
+
 .dictionart__modal-warning {
+  width: 620px;
   position: absolute;
-  background: #222222;
+  background-color: #1b1b1b;
   display: none;
-  
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 20px;
+  border-radius: 4px;
+  z-index: 200;
+}
+
+.dictionary__modal-warning-wrapper {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-warning-title {
+  font-size: 25px;
+  color: var(--color-accent);
+}
+.modal-warning-text {
+  line-height: 17px;
+}
+
+.modal-wrapper-btn {
+  text-align: right;
+  display: flex;
+  gap: 10px;
+}
+
+.modal-warning-btn {
+  border-radius: 4px;
+  color: #7e7e7e;
+  font-size: 17px;
+  padding: 5px;
+  transition: 0.5s;
+  background-color: var(--color-grey);
+}
+.modal-warning-btn:hover {
+  transition: 0.5s;
+  box-shadow: 0 0 4px 1px var(--color-accent-02);
+  color: var(--color-accent-02);
+} 
+
+.dictionary__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background: #000000de;
+  z-index: 99;
 }
 
 .dictionary__span-color {
@@ -119,6 +178,14 @@ body {
 }
 .simplebar-track.simplebar-vertical {
   width: 3px;
+}
+
+.active-wirning {
+  display: block;
+}
+
+.active-overlay {
+  display: block;
 }
 
 .active-line {
