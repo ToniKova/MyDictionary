@@ -181,11 +181,12 @@
   display: none;
 }
 
-.transcription {
+
+.coincidence {
+  background-color: #1ba858;
+  font-weight: bold;
 }
-.translation {
-}
-.examples {
-}
+
+
 
 

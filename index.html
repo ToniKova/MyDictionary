@@ -13,6 +13,11 @@
 <body>
   <div class="container">
     <div class="dictionary">
+      <div class="dictionary__save">
+        <p>Сохранение</p>
+        <i class="fa-regular fa-floppy-disk"></i>
+      </div>
+
       <div class="dictionary__tools-wrapper">
         <div class="dictionary__categories">
           <button class="dictionary__categories-btn "></button>
@@ -22,6 +27,7 @@
             </button>
           </div>
         </div>
+
         <div class="dictionary__tools-bar">
           <div class="dictionary__tools-bar-btn-wrapper">
             <button class="tools-bar-btn color">         
@@ -41,6 +47,11 @@
             </button>
           </div>
           <div class="dictionary__tools-bar-btn-wrapper">
+            <button class="tools-bar-btn delete centr">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          <div class="dictionary__tools-bar-btn-wrapper">
             <button class="tools-bar-btn bolt centr">
               <i class="fa-solid fa-b"></i>
             </button>
@@ -51,12 +62,21 @@
             </button>
           </div>
         </div>
+
         <div class="dictionary__size-wrapper">
           <button class="dictionary__size-minus">-</button>
           <div class="dictionary__size-count">14</div>
           <button class="dictionary__size-plus">+</button>
         </div>
+
+        <div class="dictionary__search-wrapper">
+          <div class="dictionary__label">
+            <input class="dictionary__input" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
       </div>
+
       <div class="dictionary__wrapper">
         <div class="dictionary__column-wrapper">
           <button class="dictionary__add-btn"></button>
@@ -112,8 +132,6 @@
         </div>
       </div>
     </div> 
-  </div>
-
   </div>
   <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
   <script type="module" src="./js/main.js"></script>

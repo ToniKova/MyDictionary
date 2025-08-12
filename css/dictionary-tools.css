@@ -9,6 +9,16 @@
   gap: 10px;
 }
 
+.dictionary__save {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+  padding: 5px;
+  color: var(--color-secondary);
+}
+
 .dictionary__categories {
   padding: 10px;
   display: flex;
@@ -149,6 +159,19 @@
     rgba(255, 255, 255, 0) 100%
   );
 }
+.dictionary__size-wrapper::before {
+  content: '';
+  right: -1px;
+  position: absolute;
+  width: 2px;
+  height: 70%;
+  background: linear-gradient(
+    250deg,
+    rgb(255, 255, 255, 0) 0%,
+    var(--color-accent-02) 51.56%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
 .dictionary__size-minus,.dictionary__size-plus {
   width: 30px;
   height: 30px;
@@ -176,34 +199,48 @@
   justify-content: center;
 }
 
+.dictionary__search-wrapper {
+  position: relative;
+  width: 220px;
+  /* height: 30px; */
+}
 
+.dictionary__label {
+}
+.dictionary__input {
+  width: 100%;
+  padding: 5px 40px 5px 5px; /* справа место под иконку */
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--color-grey);
+  color: #a1a1a1;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 
-/* .position {
-  background: red;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+.dictionary__input:focus {
+  box-shadow: 0 0 4px 1px var(--color-accent-02);
+}
+
+.fa-magnifying-glass {
   position: absolute;
-  pointer-events: none;
-} */
+  top: 50%;
+  transform: translate(-50%,-50%);
+  right: 0px;
+  color: var(--color-secondary);
+}
+
+    
+
 .fa-solid {
   pointer-events: none;
   color:var(--color-secondary);
   font-size: 15px;
 }
-/* .color-icon {
-  color: red;
-} */
+
 .fa-brands {
   pointer-events: none;
   color:var(--color-secondary);
   font-size: 15px;
 }
 
-
-/* .fa-y-combinator {
-  color:var(--color-secondary);
-  font-size: 20px;
-  pointer-events: none;
-
-} */

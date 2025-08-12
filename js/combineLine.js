@@ -1,6 +1,6 @@
 const combineBtn = document.querySelector('.combine')
 const modalWarning = document.querySelector('.dictionart__modal-warning')
-const overlay = document.querySelector('.dictionary__overlay')
+const overLay = document.querySelector('.dictionary__overlay')
 const btnConfirm = document.querySelector('.accept')
 
 
@@ -12,7 +12,6 @@ combineBtn.addEventListener('click', () => {
 
 window.addEventListener('click', (e) => {
   if (e.target.classList.contains('line-btn')) {
-    
     const currentTarget = e.target
     findPerent(currentTarget)
   }
@@ -54,8 +53,9 @@ function combineCell () {
 
 // ======================================================
  
-function confirmAnswer(allLinesWord, activeBorders, ) {
+function confirmAnswer(allLinesWord, activeBorders) {
   modalWarning.classList.add('active-wirning')
+  overLay.classList.add('active-overlay')
   btnConfirm.addEventListener('click', () => {
     const AllLineWords = document.querySelectorAll('.dictionary__line-word')
 
@@ -69,11 +69,11 @@ function confirmAnswer(allLinesWord, activeBorders, ) {
 
       AllLineWords.forEach(item => {
         item.classList.remove('active-line')
+        overLay.classList.remove('active-overlay')
       })
     })
   })
 }
-
 
 
 

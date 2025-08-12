@@ -29,7 +29,7 @@ html,body {
 body {
   background-color: var(--color-bacground);
   color: var(--color-main);
-  padding: 30px 0px;
+  padding: 8px 0px 20px 0px;
   font-family: var(--font-family);
   /* overflow: hidden; */
 
@@ -38,7 +38,7 @@ body {
 
 
 .container {
-  max-width: 1800px;
+  max-width: 1930px;
   margin: 0 auto;
   padding: 0 15px;
   height: 100%;
@@ -203,3 +203,4 @@ body {
 .style-italic {
   font-style: italic;
 }
+

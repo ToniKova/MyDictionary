@@ -1,37 +1,53 @@
 const btnMinus = document.querySelector('.dictionary__size-minus')
 const btnPlus = document.querySelector('.dictionary__size-plus')
 const countSize = document.querySelector('.dictionary__size-count')
-let countNumber = 14
+const sizeWrapper = document.querySelector('.dictionary__size-wrapper')
 
-btnMinus.addEventListener('click', () => {
-  const allLineWord = document.querySelectorAll('.dictionary__line-word')
-  allLineWord.forEach(item => {
-    if (item.classList.contains('active-line')){
-      if (item.textContent.trim().length > 0) {
-        countNumber--
-        item.style.fontSize = countNumber + 'px'
-        if (countNumber < 0) {
-          countNumber = 0
-        }
-        countSize.textContent = countNumber
-      }
+
+sizeWrapper.addEventListener('click', (e) => {
+  const target = e.target
+
+  if (target.classList.contains('dictionary__size-minus')) {
+    btnPlus.removeAttribute('disabled')
+    const activeLine = document.querySelector('.dictionary__line-word.active-line')
+    if (!activeLine) return
+    const fontSizeItem = parseInt(getComputedStyle(activeLine).fontSize)
+    const newSize = fontSizeItem - 1
+
+    activeLine.style.fontSize = newSize + 'px'
+    countSize.textContent = newSize
+
+    if (newSize <= 10) {
+      btnMinus.setAttribute('disabled', '')
+    } else {
+      btnMinus.removeAttribute('disabled')
     }
-  })
-})
-btnPlus.addEventListener('click', () => {
-  const allLineWord = document.querySelectorAll('.dictionary__line-word')
-  allLineWord.forEach(item => {
-    if (item.classList.contains('active-line')){
-      if (item.textContent.trim().length > 0) {
-        countNumber++
-        item.style.fontSize = countNumber + 'px'
-        if (countNumber > 30) {
-          countNumber = 30
-        }
-        countSize.textContent = countNumber
-      }
+  }
+
+  if (target.classList.contains('dictionary__size-plus')) {
+    btnMinus.removeAttribute('disabled')
+    const activeLine = document.querySelector('.dictionary__line-word.active-line')
+    const fontSizeItem = parseInt(getComputedStyle(activeLine).fontSize)
+    const newSize = fontSizeItem + 1
+
+    activeLine.style.fontSize = newSize + 'px'
+    countSize.textContent = newSize
+
+    if (newSize >= 25) {
+      btnPlus.setAttribute('disabled', '')
+    } else {
+      btnPlus.removeAttribute('disabled')
     }
-  })
-  
+  }
 })
+
+
+
+
+
+
+
+
+
+
 

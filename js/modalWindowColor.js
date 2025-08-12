@@ -1,6 +1,10 @@
 const btnColor = document.querySelector('.color')
 const modalWindowColor = document.querySelector('.dictionary__modal-color')
 const wrapperModalColor = document.querySelector('.dictionary__wrapper-modal-color')
+const countSize = document.querySelector('.dictionary__size-count')
+const btnMinus = document.querySelector('.dictionary__size-minus')
+
+
 
 const btnBackground = document.querySelector('.background')
 const wrapperModalBackground = document.querySelector('.dictionary__wrapper-modal-background')
@@ -8,7 +12,7 @@ const modalWindowBackground = document.querySelector('.dictionary__modal-backgro
 
 
 export let arrayColors = [
-  "#141414",
+  "#111111",
   "#000000", "#434343", "#666666", "#999999", "#B7B7B7", "#CCCCCC", "#D9D9D9", "#EFEFEF", "#F3F3F3", "#FFFFFF",
   "#980000", "#FF0000", "#FF9900", "#FFFF00", "#00FF00", "#00FFFF", "#4A86E8", "#0000FF", "#9900FF", "#FF00FF",
   "#E6B8AF", "#F4CCCC", "#FCE5CD", "#FFF2CC", "#D9EAD3", "#D0E0E3", "#C9DAF8", "#CFE2F3", "#D9D2E9", "#EAD1DC",
@@ -37,11 +41,9 @@ window.addEventListener('click', (e)=> {
     // deleteSpanColor()
   }
 
-
   if (e.target.classList.contains('dictionary__add-btn')) {
     cheackLineWord()
   }
-
 
   if (e.target.classList.contains('background')) {
     const allColors = document.querySelectorAll('.dictionary__span-color')
@@ -61,6 +63,7 @@ window.addEventListener('click', (e)=> {
 
 
 // =====================================================
+// Функция для создание ячейки цвета
 
 function createSpanColor (wrapperModal) {
   // Создание каждого цвета при открытии модалки
@@ -75,21 +78,30 @@ function createSpanColor (wrapperModal) {
 
 
 // ==================================================
+// Функция для очестки модалки при закрытии
 
 export function deleteSpanColor (modalWindow) { 
-  // Очистка модалки при закрытии
   modalWindow.innerHTML = ''
 }
 
 
 // =======================================================
+// Функция для проверки если ли класс активности у ячейки на которую кликнули
 
-function cheackLineWord () { 
-  // Функция для проверки если ли класс активности у ячейки на которую кликнули
+export function cheackLineWord () { 
   const lineWordAll = document.querySelectorAll('.dictionary__line-word')
   lineWordAll.forEach(item => {
+
     item.addEventListener('click', () => {
-      fontSizeLine(item)
+      let currentSize = parseInt(window.getComputedStyle(item).fontSize);
+      countSize.textContent = currentSize
+
+      if (currentSize > 10) {
+        btnMinus.removeAttribute('disabled')
+      } else {
+        btnMinus.setAttribute('disabled', '')
+      }
+
       lineWordAll.forEach(item => {
         item.classList.remove('active-line')
       })
@@ -102,90 +114,22 @@ function cheackLineWord () {
 
 
 // =======================================================
+//функция для настройки нужного цвета текста в ячейке
 
 function showActiveColor (property) {
-  //функция для настройки нужного цвета текста в ячейке
   const AllColors = document.querySelectorAll('.dictionary__span-color')
   const lineWord = document.querySelectorAll('.dictionary__line-word')
   AllColors.forEach(item => {
     item.addEventListener('click', () => {
       const itemPropertyStyle = item.style.background
-      console.log(itemPropertyStyle)
       lineWord.forEach(item => {
         if (item.classList.contains('active-line')) {
           item.style[property] = itemPropertyStyle
-          
         }
       })
     })
   })
 }
-
-
-// =====================================================
-
-function fontSizeLine (item) {
-  if (item.textContent.trim().length > 0) {
-    const countSize = document.querySelector('.dictionary__size-count')
-    let currentSize = parseInt(window.getComputedStyle(item).fontSize, 10);
-    if (!item.style.fontSize) {
-      item.style.fontSize = currentSize;
-    } 
-    countSize.textContent = currentSize;
-  } 
-
-}
-
-
-// currentSize = parseInt(item.style.fontSize, 10); // Получаем значение из inline стилей
-
-
-
-// if (item.textContent.trim().length > 0) {
-//   const currentSize = window.getComputedStyle(item).fontSize;
-//   // const currentSize = item.style.fontSize
-//   console.log(currentSize)
-
-//   countSize.textContent = currentSize
-// } else {
-//   countSize.textContent = 14
-// }
-
-
-
-
-
-// function testfunction () {
-//   const allLine = document.querySelectorAll('.dictionary__line-word') 
-//   allLine.forEach(item => {
-//     console.log(1)
-//     if (item.classList.contains('active-first')) {
-//       iconCentr.style.color = '#fff'
-//     } else if (!item.classList.contains('active-first')) {
-//       iconCentr.style.color = '#7e7e7e'
-//     }
-//   })
-// }
-
-
-
-
-// =------------------------------------------------------=
-
-
-
-// function updateFontSizeDisplay(item) {
-//   const countSize = document.querySelector('.dictionary__size-count');
-//   const currentSize = parseInt(item.style.fontSize, 10);
-//   countSize.textContent = currentSize + 'px';
-// }
-// function increaseFontSize(item) {
-//   let currentSize = parseInt(item.style.fontSize, 10);
-//   currentSize += 1; // Увеличиваем размер на 1px
-//   item.style.fontSize = currentSize + 'px';
-
-//   updateFontSizeDisplay(item);
-// }
 
 
 
